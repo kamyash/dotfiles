@@ -106,7 +106,7 @@
   (setq exec-path (append (list dir) exec-path))))
 
 ;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
-(add-to-load-path "elisp" "conf" "public_repos")
+;(add-to-load-path "elisp" "conf" "public_repos")
 
 (add-to-list 'load-path "~/.emacs.d/elisp/color-theme")
 ;; Color Theme
@@ -207,12 +207,12 @@
     (descbinds-anything-install)))
 
 ;; Auto Complete Mode
-(when (require 'auto-complete-config nil t)
-  (add-to-list 'ac-dictionary-directories 
-    "~/.emacs.d/elisp/ac-dict")
-  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-  (ac-config-default))
-(global-auto-complete-mode 1)
+;; (when (require 'auto-complete-config nil t)
+;;   (add-to-list 'ac-dictionary-directories 
+;;     "~/.emacs.d/elisp/auto-complete-1.3.1/ac-dict")
+;;   (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+;;   (ac-config-default))
+;; (global-auto-complete-mode 1)
 
 ;; color-moccurの設定
 (when (require 'color-moccur nil t)
