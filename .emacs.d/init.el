@@ -30,6 +30,7 @@
 (size-indication-mode t)
 (setq frame-title-format "%f") ; Show full path of the file
 (show-paren-mode 1)
+(load-theme 'sanityinc-solarized-dark t)
 
 ;; UX
 (setq ring-bell-function 'ignore)
