@@ -38,6 +38,8 @@
 (setq scroll-conservatively 35
       scroll-margin 0
       scroll-step 1) ; scroll by 1 line
+(require 'auto-complete-config)
+(ac-config-default)
 
 ;; key-binds
 (keyboard-translate ?\C-h ?\C-?)
