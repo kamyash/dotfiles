@@ -4,6 +4,7 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+;; load paths
 (defun add-to-load-path (&rest paths)
   (let (path)
     (dolist (path paths paths)
@@ -19,26 +20,31 @@
 
 (global-linum-mode) ; M-g g -> jump to specific line
 
-(setq ring-bell-function 'ignore)
-
+;; view
 (setq inhibit-startup-screen t)
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode -1)
+(set-frame-parameter nil 'alpha 95)
+(column-number-mode t)
+(size-indication-mode t)
+(setq frame-title-format "%f") ; Show full path of the file
+(show-paren-mode 1)
 
+;; UX
+(setq ring-bell-function 'ignore)
+(fset 'yes-or-no-p 'y-or-n-p)
 (setq scroll-conservatively 35
       scroll-margin 0
       scroll-step 1) ; scroll by 1 line
 
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(scroll-bar-mode -1)
-
+;; key-binds
 (keyboard-translate ?\C-h ?\C-?)
-
 (define-key global-map (kbd "C-m") 'newline-and-indent) ; default: newline
-
 (define-key global-map (kbd "C-t") 'other-window) ; default: transpose-chars
 
-(set-language-environment "Japanese") ; least Japanese language environment
-
+;; language environment
+(set-language-environment "Japanese")
 (set-terminal-coding-system 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
 (setq default-file-name-coding-system 'utf-8)
@@ -46,18 +52,7 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(set-frame-parameter nil 'alpha 95)
-
-;; mode line
-(column-number-mode t)
-(size-indication-mode t)
-
-(setq frame-title-format "%f") ; Show full path of the file
-
-(show-paren-mode 1)
-
+;; fonts
 (when (eq window-system 'ns)
   (set-face-attribute 'default nil
                       :family "Menlo"
@@ -74,7 +69,6 @@
           (".*nfmotoyacedar-bold.*" . 1.2)
           (".*nfmotoyacedar-medium.*" . 1.2)
           ("-cdac$" . 1.3))))
-
 (when (eq system-type 'windows-nt)
   (set-face-attribute 'default nil
                       :family "Consolas"
