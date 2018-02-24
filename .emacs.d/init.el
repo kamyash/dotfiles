@@ -13,12 +13,11 @@
 	(add-to-list 'load-path default-directory)
 	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
 	    (normal-top-level-add-subdirs-to-load-path))))))
-(add-to-load-path ".cask")
 
+;; cask
+(add-to-load-path ".cask")
 (require 'cask)
 (cask-initialize)
-
-(global-linum-mode) ; M-g g -> jump to specific line
 
 ;; view
 (setq inhibit-startup-screen t)
@@ -45,8 +44,9 @@
 (keyboard-translate ?\C-h ?\C-?)
 (define-key global-map (kbd "C-m") 'newline-and-indent) ; default: newline
 (define-key global-map (kbd "C-t") 'other-window) ; default: transpose-chars
+(global-linum-mode) ; M-g g -> jump to specific line
 
-;; language environment
+;; Japanese language environment
 (set-language-environment "Japanese")
 (set-terminal-coding-system 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
@@ -85,6 +85,9 @@
           (".*ƒƒCƒŠƒI.*" . 1.15)
           ("-cdac$" . 1.3))))
 
+;; backup files
 (add-to-list 'backup-directory-alist
 	     (cons "." "~/.emacs.d/backups/")) ; gather buckup files and auto-save files
 
+;; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
