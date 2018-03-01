@@ -91,3 +91,9 @@
 
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; python
+(require 'python-mode)
+(add-hook 'python-mode-hook 'flymake-find-file-hook)
+(when (load "python-pep8")
+  (define-key global-map "\C-c\ p" 'python-pep8))

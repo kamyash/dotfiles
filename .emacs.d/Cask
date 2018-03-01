@@ -20,3 +20,5 @@
 (depends-on "color-theme")
 (depends-on "color-theme-sanityinc-solarized")
 (depends-on "auto-complete")
+(depends-on "python-mode")
+(depends-on "python-pep8")
