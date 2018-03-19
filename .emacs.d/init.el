@@ -45,6 +45,8 @@
 (define-key global-map (kbd "C-m") 'newline-and-indent) ; default: newline
 (define-key global-map (kbd "C-t") 'other-window) ; default: transpose-chars
 (global-linum-mode) ; M-g g -> jump to specific line
+(define-key global-map [?ﾂ･] [?\\]) ; ﾂ･ -> \
+(define-key global-map (kbd "M-ﾂ･") [?\\]) ; M-ﾂ･ -> \
 
 ;; Japanese language environment
 (set-language-environment "Japanese")
@@ -79,10 +81,10 @@
   (set-fontset-font
    nil
    'japanese-jisx0208
-   (font-spec :family "メイリオ"))
+   (font-spec :family "繝｡繧､繝ｪ繧ｪ"))
   (setq face-font-rescale-alist
         '((".*Consolas.*" . 1.0)
-          (".*メイリオ.*" . 1.15)
+          (".*繝｡繧､繝ｪ繧ｪ.*" . 1.15)
           ("-cdac$" . 1.3))))
 
 ;; backup files
